@@ -46,7 +46,7 @@ const App = () => {
         })
         .catch(error => {
           console.log(error)
-          setErrorMessage(`Person Validation failed: ${error.response.data}`)
+          setErrorMessage(`Validation of name and number failed. Name must be at least 3 characters long and number must be at least 6 digits long`)
           setTimeout(() => {
             setErrorMessage(null)
           }, 3000)
@@ -75,7 +75,10 @@ const App = () => {
           })
       }
     } else {
-      alert(`${newName} is already added to phonebook`)
+      setErrorMessage(`${newName} is already added to phonebook`)
+      setTimeout(() => {
+        setErrorMessage(null)
+      }, 3000)
     }
   }
 

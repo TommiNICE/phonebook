@@ -5,10 +5,13 @@ import PropTypes from 'prop-types'
 const Person = ({ person, deletePerson }) => {
     console.log(person)
     return (
-        <li key={person.id}>{person.name} {person.number}
-            <button onClick={() => deletePerson(person.id)}>delete</button>
-        </li>
-
+        <tr key={person.id}>
+            <td>{person.name}</td>
+            <td>{person.number}</td>
+            <td>
+                <button onClick={() => deletePerson(person.id)}>delete</button>
+            </td>
+        </tr>
     )
 }
 Person.propTypes = {
