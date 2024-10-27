@@ -4,6 +4,9 @@ import PropTypes from 'prop-types'
 
 const SuccessNotification = ({ message }) => {
 
+    if (!message) {
+        return null
+    }
     return (
         <div className="success-notification">
             {message}
