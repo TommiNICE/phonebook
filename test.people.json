@@ -1,0 +1,64 @@
+[{
+  "_id": {
+    "$oid": "668cf653e3cdacddab819c3c"
+  },
+  "name": "Jonas",
+  "number": "18268",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "668d05b2a8985b4635262530"
+  },
+  "name": "Horst",
+  "number": "0987654321",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "668e3cb57a0cc64e922b11bc"
+  },
+  "name": "Herbert",
+  "number": "123-12345",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "668e3d197a0cc64e922b11c1"
+  },
+  "name": "Fritz",
+  "number": "928347",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "668e4521b69d1c36248d4a52"
+  },
+  "name": "John",
+  "number": "089-19278",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f971521cdbc8e551c688ac"
+  },
+  "name": "Bert",
+  "number": "123-4987",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "671b7a2f94d636d3ff2e3b0f"
+  },
+  "name": "Vincent",
+  "number": "102-4951",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "671cb020c34881e9651326ee"
+  },
+  "name": "Isabell",
+  "number": "900-756577",
+  "__v": 0
+}]
