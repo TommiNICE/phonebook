@@ -22,6 +22,14 @@ const Person = ({ person, deletePerson, updateNumber }) => {
     };
 
 
+    const copyToClipboard = (text) => {
+        navigator.clipboard.writeText(text).then(() => {
+            alert('Number copied to clipboard');
+        }).catch(err => {
+            console.error('Failed to copy text: ', err);
+        });
+    };
+
     return (
         <>
             <tr key={person.id}>
@@ -32,9 +40,9 @@ const Person = ({ person, deletePerson, updateNumber }) => {
                         <img src="./public/trash.svg" alt="Delete" className="h-5 w-5 mx-1" />
                     </button>
                     <button onClick={openModal}>
-                    <img src="./public/refresh.svg" alt="Update" className="h-5 w-5 mx-1" />
+                        <img src="./public/refresh.svg" alt="Update" className="h-5 w-5 mx-1" />
                     </button>
-                    <button onClick={() => console.log('Copy')}>
+                    <button onClick={() => copyToClipboard(person.number)}>
                         <img src="./public/copy-alt.svg" alt="Copy" className="h-5 w-5 mx-1" />
                     </button>
                 </td>
