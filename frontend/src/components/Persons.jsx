@@ -3,7 +3,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Person from './Person'
 
-const Persons = ({ persons, searchQuery, deletePerson }) => {
+const Persons = ({ persons, searchQuery, deletePerson, updateNumber }) => {
     return (
         <table className='divide-y divide-blue-500 w-[300px]'>
             <thead className='bg-yellow-50'>
@@ -16,7 +16,7 @@ const Persons = ({ persons, searchQuery, deletePerson }) => {
             <tbody className='bg-white divide-y divide-blue-500'>
                 {persons.filter(person => person.name.toLowerCase().includes(searchQuery.toLowerCase())
                 ).map(person => (
-                    <Person key={person.id} person={person} deletePerson={deletePerson} />
+                    <Person key={person.id} person={person} deletePerson={deletePerson} updateNumber={updateNumber} />
                 ))}
             </tbody>
         </table>
@@ -31,7 +31,9 @@ Persons.propTypes = {
         })
     ).isRequired,
     searchQuery: PropTypes.string.isRequired,
-    deletePerson: PropTypes.func.isRequired
+    deletePerson: PropTypes.func.isRequired,
+    updateNumber: PropTypes.func.isRequired
+
 }
 
 export default Persons

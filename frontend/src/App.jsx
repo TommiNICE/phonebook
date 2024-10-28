@@ -32,7 +32,6 @@ const App = () => {
   const addNameAndNumber = (event) => {
     event.preventDefault()
     const nameExists = persons.some(person => person.name === newName)
-    const numberExists = persons.some(person => person.number === newNumber)
     if (!nameExists) {
       personService
         .create({ name: newName, number: newNumber })
@@ -53,35 +52,36 @@ const App = () => {
             setErrorMessage(null)
           }, 3000)
         })
-    } else if (nameExists && !numberExists) {
-      const personToUpdate = persons.find(person => person.name === newName)
-      if (window.confirm(`${newName} is already added to phonebook, replace the old number with a new one?`)) {
-        personService
-          .updateNumber(personToUpdate.id, { name: personToUpdate.name, number: newNumber })
-          .then(returnedPerson => {
-            setPersons(persons.map(person => person.id === personToUpdate.id ? returnedPerson : person))
-            setNewName('')
-            setNewNumber('')
-            setSuccessMessage(`Updated Number to ${newNumber}`)
-            setTimeout(() => {
-              setSuccessMessage(null)
-            }, 3000)
-          })
-          .catch(error => {
-            console.log(error.response.data)
-            setErrorMessage(`Information of ${personToUpdate.name} has already been removed from server`)
-            setTimeout(() => {
-              setErrorMessage(null)
-            }, 3000)
-            setPersons(persons.filter(person => person.id !== personToUpdate.id))
-          })
-      }
-    } else {
+    } 
+    else {
       setErrorMessage(`${newName} is already added to phonebook`)
       setTimeout(() => {
         setErrorMessage(null)
       }, 3000)
     }
+  }
+
+  const updateNumber = (id, newNumber) => {
+    const personToUpdate = persons.find(person => person.id === id)
+    personService
+      .updateNumber(id,
+        newNumber
+      )
+      .then(returnedPerson => {
+        setPersons(persons.map(person => person.id !== id ? person : returnedPerson))
+        setNewNumber('')
+        setSuccessMessage(`Updated ${personToUpdate.name}'s number`)
+        setTimeout(() => {
+          setSuccessMessage(null)
+        }, 3000)
+      })
+      .catch(error => {
+        console.log(error.response.data.error)
+        setErrorMessage(error.response.data.error)
+        setTimeout(() => {
+          setErrorMessage(null)
+        }, 3000)
+      })
   }
 
   const deletePerson = (id) => {
@@ -116,7 +116,6 @@ const App = () => {
       <Header />
       <SuccessNotification message={successMessage} />
       <ErrorNotification message={errorMessage} />
-      <h2 className='text-xl'>New Entry</h2>
       <PersonForm
         newName={newName}
         newNumber={newNumber}
@@ -124,7 +123,7 @@ const App = () => {
         handleNameChange={handleNameChange}
         handleNumberChange={handleNumberChange} />
       <Filter searchQuery={searchQuery} handleSearchChange={handleSearchQuery} />
-      <Persons persons={persons} searchQuery={searchQuery} deletePerson={deletePerson} />
+      <Persons persons={persons} searchQuery={searchQuery} deletePerson={deletePerson} updateNumber={updateNumber} />
       <Footer />
     </div>
   )

@@ -19,7 +19,7 @@ const PersonForm = ({ newName, newNumber, addNameAndNumber, handleNameChange, ha
             </div>
             <div className='flex flex-col items-center'>
                 <button type="submit" className="px-[30px] py-[10px] my-[5px] border border-blue-600 bg-blue-600 hover:bg-green-400 text-white rounded-lg">
-                    Add
+                    ADD
                 </button>
             </div>
         </form>
