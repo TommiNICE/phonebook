@@ -27,15 +27,15 @@ const Person = ({ person, deletePerson, updateNumber }) => {
             <tr key={person.id}>
                 <td className="p-2 border border-blue-500">{person.name}</td>
                 <td className="p-2 border border-blue-500">{person.number}</td>
-                <td className="p-2 border border-blue-500">
+                <td className="p-2 border border-blue-500 flex flex-row items-center">
                     <button onClick={() => deletePerson(person.id)}>
-                        <img src="./public/trash.svg" alt="Delete" className="h-6 w-6 mx-1" />
+                        <img src="./public/trash.svg" alt="Delete" className="h-5 w-5 mx-1" />
                     </button>
                     <button onClick={openModal}>
-                    <img src="./public/refresh.svg" alt="Update" className="h-6 w-6 mx-1" />
+                    <img src="./public/refresh.svg" alt="Update" className="h-5 w-5 mx-1" />
                     </button>
                     <button onClick={() => console.log('Copy')}>
-                        <img src="./public/copy-alt.svg" alt="Copy" className="h-6 w-6 mx-1" />
+                        <img src="./public/copy-alt.svg" alt="Copy" className="h-5 w-5 mx-1" />
                     </button>
                 </td>
             </tr>
@@ -58,7 +58,7 @@ const Person = ({ person, deletePerson, updateNumber }) => {
                                     Cancel
                                 </button>
                                 <button type="submit" className="px-[20px] py-[10px] border border-blue-600 bg-blue-600 hover:bg-green-400 text-white rounded-lg">
-                                    Save
+                                    Update
                                 </button>
                             </div>
                         </form>
