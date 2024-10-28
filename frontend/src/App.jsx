@@ -5,6 +5,7 @@ import Persons from './components/Persons'
 import personService from './services/persons'
 import SuccessNotification from './components/SucessNotification'
 import ErrorNotification from './components/ErrorNotification'
+import Footer from './components/Footer'
 
 const App = () => {
 
@@ -110,21 +111,22 @@ const App = () => {
   }
 
   return (
-    <div>
-      <h2>Phonebook</h2>
+    <div className='bg-blue-200 flex flex-col items-center'>
+      <img src='./icons8-rotary-dial-telephone-100.png' alt='phone' />
+      <h1 className='text-center text-blue-600 uppercase text-5xl'>Phone Book</h1>
       <SuccessNotification message={successMessage} />
       <ErrorNotification message={errorMessage} />
       <Filter searchQuery={searchQuery} handleSearchChange={handleSearchQuery} />
-      <h2>add a new</h2>
+      <h2 className='text-xl'>add a new</h2>
       <PersonForm
         newName={newName}
         newNumber={newNumber}
         addNameAndNumber={addNameAndNumber}
         handleNameChange={handleNameChange}
         handleNumberChange={handleNumberChange} />
-      <h2>Numbers</h2>
+      <h2 className='text-xl'>Numbers</h2>
       <Persons persons={persons} searchQuery={searchQuery} deletePerson={deletePerson} />
-
+      <Footer />
     </div>
   )
 }

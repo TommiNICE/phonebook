@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 .success-notification {
     color: green;
     border: 2px solid green;
