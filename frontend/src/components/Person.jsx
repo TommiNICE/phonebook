@@ -28,9 +28,15 @@ const Person = ({ person, deletePerson, updateNumber }) => {
                 <td className="p-2 border border-blue-500">{person.name}</td>
                 <td className="p-2 border border-blue-500">{person.number}</td>
                 <td className="p-2 border border-blue-500">
-                    <button onClick={() => deletePerson(person.id)}>del</button>
-                    <button onClick={openModal}>up</button>
-                    <button onClick={() => console.log('Copy')}>cp</button>
+                    <button onClick={() => deletePerson(person.id)}>
+                        <img src="./public/trash.svg" alt="Delete" className="h-6 w-6 mx-1" />
+                    </button>
+                    <button onClick={openModal}>
+                    <img src="./public/refresh.svg" alt="Update" className="h-6 w-6 mx-1" />
+                    </button>
+                    <button onClick={() => console.log('Copy')}>
+                        <img src="./public/copy-alt.svg" alt="Copy" className="h-6 w-6 mx-1" />
+                    </button>
                 </td>
             </tr>
 
