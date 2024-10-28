@@ -4,9 +4,8 @@ import PropTypes from 'prop-types'
 
 const Filter = ({ searchQuery, handleSearchChange }) => {
     return (
-        <div>
-        filter shown with: 
-        <input id="input-search" placeholder="search for name" 
+        <div className='w-[300px] flex flex-col items-center'>
+        <input id="input-search" className='w-[300px] my-[10px] py-[10px] rounded-lg' placeholder="search for name" 
         value={searchQuery} onChange={handleSearchChange} />
       </div>
     )

@@ -1,11 +1,12 @@
 import { useState, useEffect } from 'react'
+import Footer from './components/Footer'
+import Header from './components/Header'
 import Filter from './components/Filter'
 import PersonForm from './components/PersonForm'
 import Persons from './components/Persons'
-import personService from './services/persons'
 import SuccessNotification from './components/SucessNotification'
 import ErrorNotification from './components/ErrorNotification'
-import Footer from './components/Footer'
+import personService from './services/persons'
 
 const App = () => {
 
@@ -111,20 +112,18 @@ const App = () => {
   }
 
   return (
-    <div className='bg-blue-200 flex flex-col items-center'>
-      <img src='./icons8-rotary-dial-telephone-100.png' alt='phone' />
-      <h1 className='text-center text-blue-600 uppercase text-5xl'>Phone Book</h1>
+    <div className='flex flex-col items-center max-w-[300px] mx-auto'>
+      <Header />
       <SuccessNotification message={successMessage} />
       <ErrorNotification message={errorMessage} />
-      <Filter searchQuery={searchQuery} handleSearchChange={handleSearchQuery} />
-      <h2 className='text-xl'>add a new</h2>
+      <h2 className='text-xl'>New Entry</h2>
       <PersonForm
         newName={newName}
         newNumber={newNumber}
         addNameAndNumber={addNameAndNumber}
         handleNameChange={handleNameChange}
         handleNumberChange={handleNumberChange} />
-      <h2 className='text-xl'>Numbers</h2>
+      <Filter searchQuery={searchQuery} handleSearchChange={handleSearchQuery} />
       <Persons persons={persons} searchQuery={searchQuery} deletePerson={deletePerson} />
       <Footer />
     </div>
