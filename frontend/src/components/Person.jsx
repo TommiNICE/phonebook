@@ -37,13 +37,13 @@ const Person = ({ person, deletePerson, updateNumber }) => {
                 <td className="p-2 border border-blue-500">{person.number}</td>
                 <td className="p-2 border border-blue-500 flex flex-row items-center">
                     <button onClick={() => deletePerson(person.id)}>
-                        <img src="./public/trash.svg" alt="Delete" className="h-5 w-5 mx-1 hover:bg-blue-200 rounded-lg" />
+                        <img src="./trash.svg" alt="Delete" className="h-5 w-5 mx-1 hover:bg-blue-200 rounded-lg" />
                     </button>
                     <button onClick={openModal}>
-                        <img src="./public/refresh.svg" alt="Update" className="h-5 w-5 mx-1 hover:bg-blue-200 rounded-lg" />
+                        <img src="./refresh.svg" alt="Update" className="h-5 w-5 mx-1 hover:bg-blue-200 rounded-lg" />
                     </button>
                     <button onClick={() => copyToClipboard(person.number)}>
-                        <img src="./public/copy-alt.svg" alt="Copy" className="h-5 w-5 mx-1 hover:bg-blue-200 rounded-lg" />
+                        <img src="./copy-alt.svg" alt="Copy" className="h-5 w-5 mx-1 hover:bg-blue-200 rounded-lg" />
                     </button>
                 </td>
             </tr>
