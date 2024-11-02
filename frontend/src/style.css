@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-.success-notification {
+/* .success-notification {
     color: green;
     border: 2px solid green;
     padding: 10px 5px;
@@ -14,4 +14,4 @@
     border: 2px solid red;
     padding: 10px 5px;
     margin: 10px 0px;
-}
+} */

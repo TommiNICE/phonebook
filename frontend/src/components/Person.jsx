@@ -37,13 +37,13 @@ const Person = ({ person, deletePerson, updateNumber }) => {
                 <td className="p-2 border border-blue-500">{person.number}</td>
                 <td className="p-2 border border-blue-500 flex flex-row items-center">
                     <button onClick={() => deletePerson(person.id)}>
-                        <img src="./public/trash.svg" alt="Delete" className="h-5 w-5 mx-1" />
+                        <img src="./public/trash.svg" alt="Delete" className="h-5 w-5 mx-1 hover:bg-blue-200 rounded-lg" />
                     </button>
                     <button onClick={openModal}>
-                        <img src="./public/refresh.svg" alt="Update" className="h-5 w-5 mx-1" />
+                        <img src="./public/refresh.svg" alt="Update" className="h-5 w-5 mx-1 hover:bg-blue-200 rounded-lg" />
                     </button>
                     <button onClick={() => copyToClipboard(person.number)}>
-                        <img src="./public/copy-alt.svg" alt="Copy" className="h-5 w-5 mx-1" />
+                        <img src="./public/copy-alt.svg" alt="Copy" className="h-5 w-5 mx-1 hover:bg-blue-200 rounded-lg" />
                     </button>
                 </td>
             </tr>
@@ -55,11 +55,11 @@ const Person = ({ person, deletePerson, updateNumber }) => {
                         <form onSubmit={handleUpdate}>
                             <div>
                                 <p>Name:</p>
-                                <input value={modalName} onChange={(e) => setModalName(e.target.value)} className="w-full my-[2px] py-[10px] rounded-lg" />
+                                <input value={modalName} onChange={(e) => setModalName(e.target.value)} className="w-full my-[2px] py-[10px] rounded-lg border-2" />
                             </div>
                             <div>
                                 <p>Number:</p>
-                                <input value={modalNumber} onChange={(e) => setModalNumber(e.target.value)} className="w-full my-[2px] py-[10px] rounded-lg" />
+                                <input value={modalNumber} onChange={(e) => setModalNumber(e.target.value)} className="w-full my-[2px] py-[10px] rounded-lg border-2" />
                             </div>
                             <div className="flex justify-end mt-4">
                                 <button type="button" onClick={closeModal} className="px-[20px] py-[10px] mr-2 border border-gray-600 bg-gray-600 hover:bg-gray-400 text-white rounded-lg">
