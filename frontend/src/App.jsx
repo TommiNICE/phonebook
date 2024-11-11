@@ -112,7 +112,8 @@ const App = () => {
   }
 
   return (
-    <div className='flex flex-col items-center max-w-[300px] mx-auto'>
+    <div className='min-h-screen bg-gradient-to-br from-blue-50 to-indigo-50 p-6'>
+      <div className="max-w-4xl mx-auto">
       <Header />
       <SuccessNotification message={successMessage} />
       <ErrorNotification message={errorMessage} />
@@ -125,6 +126,7 @@ const App = () => {
       <Filter searchQuery={searchQuery} handleSearchChange={handleSearchQuery} />
       <Persons persons={persons} searchQuery={searchQuery} deletePerson={deletePerson} updateNumber={updateNumber} />
       <Footer />
+      </div>
     </div>
   )
 }

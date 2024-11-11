@@ -1,26 +1,35 @@
 /* eslint-disable no-unused-vars */
 import React from 'react'
+import { Plus } from 'lucide-react';
 import PropTypes from 'prop-types'
 
 const PersonForm = ({ newName, newNumber, addNameAndNumber, handleNameChange, handleNumberChange }) => {
     return (
-        <form id="form-1" onSubmit={addNameAndNumber} className="rounded-lg">
-            <div className='w-[300px]'>
-                <p>Name:</p> 
-                <input id="input-name" value={newName}
-                    onChange={handleNameChange}
-                    className='w-[300px] my-[2px] py-[10px] rounded-lg' />
-            </div>
-            <div>
-                <p>Number:</p> 
-                <input id="input-number" value={newNumber}
-                    onChange={handleNumberChange} 
-                    className='w-[300px] my-[2px] py-[10px] rounded-lg' />
-            </div>
-            <div className='flex flex-col items-center'>
-                <button type="submit" className="px-[30px] py-[10px] my-[5px] border border-blue-600 bg-blue-600 hover:bg-green-400 text-white rounded-lg">
-                    ADD
-                </button>
+        <form id="form-1" onSubmit={addNameAndNumber} className="bg-white rounded-lg shadow-md p-6 mb-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                    <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1" >
+                        Name:    
+                    </label> 
+                    <input id="input-name" value={newName}
+                        onChange={handleNameChange}
+                        className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                        placeholder="Enter name" />
+                </div>
+                <div>
+                    <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">
+                        Phone Number:
+                    </label>
+                    <input id="input-number" value={newNumber}
+                        type="tel"
+                        onChange={handleNumberChange} 
+                        className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                        placeholder='Enter phone Number' />
+                </div>
+                    <button type="submit" className="mt-4 w-full bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700 transition-colors flex items-center justify-center gap-2">
+                        <Plus size={20} />
+                        Add Contact
+                    </button>
             </div>
         </form>
     )

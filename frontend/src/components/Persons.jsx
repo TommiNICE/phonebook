@@ -5,21 +5,24 @@ import Person from './Person'
 
 const Persons = ({ persons, searchQuery, deletePerson, updateNumber }) => {
     return (
-        <table className='divide-y divide-blue-500 w-[300px]'>
-            <thead className='bg-yellow-50'>
+        <div className="bg-white rounded-lg shadow-md overflow-hidden">
+            <table className="min-w-full divide-y divide-gray-200">
+            <thead className="bg-gray-50">
                 <tr>
-                    <th className='font-normal text-xl p-2'>Name</th>
-                    <th className='font-normal text-xl p-2'>Number</th>
-                    <th className='font-normal text-xl p-2'>Actions</th>
+                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Name</th>
+                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Number</th>
+                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
                 </tr>
             </thead>
-            <tbody className='bg-white divide-y divide-blue-500'>
+            <tbody className="bg-white divide-y divide-gray-200">
                 {persons.filter(person => person.name.toLowerCase().includes(searchQuery.toLowerCase())
                 ).map(person => (
-                    <Person key={person.id} person={person} deletePerson={deletePerson} updateNumber={updateNumber} />
+                    <Person key={person.id} persons={persons} person={person} deletePerson={deletePerson} updateNumber={updateNumber} />
                 ))}
             </tbody>
         </table>
+        </div>
+        
     )
 }
 Persons.propTypes = {

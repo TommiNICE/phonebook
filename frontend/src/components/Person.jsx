@@ -1,8 +1,9 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
+import { Trash2, Edit2, Copy, Plus, Save, X } from 'lucide-react';
 import PropTypes from 'prop-types';
 
-const Person = ({ person, deletePerson, updateNumber }) => {
+const Person = ({ person, deletePerson, updateNumber, persons }) => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [modalName, setModalName] = useState(person.name);
     const [modalNumber, setModalNumber] = useState(person.number);
@@ -32,21 +33,42 @@ const Person = ({ person, deletePerson, updateNumber }) => {
 
     return (
         <>
-            <tr key={person.id}>
-                <td className="p-2 border border-blue-500">{person.name}</td>
-                <td className="p-2 border border-blue-500">{person.number}</td>
-                <td className="p-2 border border-blue-500 flex flex-row items-center">
-                    <button onClick={() => deletePerson(person.id)}>
-                        <img src="./trash.svg" alt="Delete" className="h-5 w-5 mx-1 hover:bg-blue-200 rounded-lg" />
+            <tr key={person.id} className="hover:bg-gray-50">
+                <td className="px-6 py-4 whitespace-nowrap">
+                <span className="text-sm text-gray-900">{person.name}</span>
+                </td>
+                <td className="px-6 py-4 whitespace-nowrap">
+                <span className="text-sm text-gray-900">{person.number}</span>
+                </td>
+                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                    <div className="flex gap-2">
+                    <button 
+                    onClick={() => deletePerson(person.id)}
+                    className="text-red-600 hover:text-red-900"
+                    title="Delete">
+                        <Trash2 size={20} />
                     </button>
-                    <button onClick={openModal}>
-                        <img src="./refresh.svg" alt="Update" className="h-5 w-5 mx-1 hover:bg-blue-200 rounded-lg" />
+                    <button onClick={openModal}
+                    className="text-blue-600 hover:text-blue-900"
+                    title="Edit">
+                        <Edit2 size={20} />
                     </button>
-                    <button onClick={() => copyToClipboard(person.number)}>
-                        <img src="./copy-alt.svg" alt="Copy" className="h-5 w-5 mx-1 hover:bg-blue-200 rounded-lg" />
+                    <button onClick={() => copyToClipboard(person.number)}
+                    className="text-indigo-600 hover:text-indigo-900"
+                    title="Copy number">
+                        <Copy size={20} />
                     </button>
+                    </div>
+                    
                 </td>
             </tr>
+            {persons.length === 0 && (
+                <tr>
+                  <td colSpan={3} className="px-6 py-8 text-center text-gray-500">
+                    No contacts yet. Add your first contact above.
+                  </td>
+                </tr>
+              )}
 
             {isModalOpen && (
                 <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
@@ -78,6 +100,7 @@ const Person = ({ person, deletePerson, updateNumber }) => {
 };
 
 Person.propTypes = {
+    persons: PropTypes.array.isRequired,
     person: PropTypes.shape({
         id: PropTypes.number.isRequired,
         name: PropTypes.string.isRequired,
